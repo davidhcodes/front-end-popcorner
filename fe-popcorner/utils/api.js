@@ -11,6 +11,16 @@ export const getUser = (userID) => {
     return data.user;
   });
 };
+export const getChatbyChatId = (chatID)=>{
+  return userAPI.get(`/messages/${chatID}`).then(({data})=>{
+    return data
+  })
+}
+// export const getMessagebyChatId = (chatID)=>{
+//   return userAPI.post(`/messages/${chatID}`).then(({data})=>{
+//     return data
+//   })
+// }
 
 const apiKey = "fc774c3845ae6ffdefec17c7db1f7fec";
 

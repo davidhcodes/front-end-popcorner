@@ -6,6 +6,7 @@ import UserInfo from "./UserInfo";
 import SignUp from "./SignUp";
 import Interests from "./Interests";
 import HomeScreen from "../../screens/HomeScreen";
+import ChatScreen from "../../screens/ChatsScreen";
 // import { useAuth } from "./AuthContext";
 
 const Tab = createBottomTabNavigator();
@@ -19,19 +20,16 @@ function MainPage({ isLoggedIn, setIsLoggedIn, user, setUser }) {
         {(props) => <HomeScreen {...props} />}
       </Tab.Screen>
       {console.log(isLoggedIn)}
-      {/* <Tab.Screen
-        name="LoginPage"
-        options={{ title: "Login" }}
-        initialParams={{ isLoggedIn, setIsLoggedIn, setUser }}
-      >
-        {(props) => (
-          <LoginPage
-            {...props}
-            setIsLoggedIn={setIsLoggedIn}
-            setUser={setUser}
-          />
-        )}
-      </Tab.Screen> */}
+      <Tab.Screen
+            name="ChatScreen"
+            options={{ title: "" }}
+            initialParams={{ isLoggedIn, user }}
+          >
+            {/* Pass props as children */}
+            {(props) => (
+              <ChatScreen {...props} isLoggedIn={isLoggedIn} user={user} />
+            )}
+          </Tab.Screen>
       {isLoggedIn ? (
         <Tab.Screen
           name="UserInfo"
