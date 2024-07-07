@@ -8,6 +8,7 @@ import UserInfo from "./UserInfo";
 import SignUp from "./SignUp";
 import Interests from "./Interests";
 import HomeScreen from "../../screens/HomeScreen";
+import EventScreen from "./EventScreen";
 import ChatScreen from "./ChatScreen";
 import CommunitiesScreen from "../../screens/CommunitiesScreen";
 import { CommunitiesList } from "./CommunitiesList";
@@ -155,6 +156,15 @@ function MainPage({
         >
           {(props) => <CommunitiesStack {...props} user={user} />}
         </Tab.Screen>
+        <Tab.Screen
+            name="EventScreen"
+            options={{ title: "Events" }}
+            initialParams={{ isLoggedIn, user }}
+            >
+            {(props) => (
+              <EventScreen {...props} isLoggedIn={isLoggedIn} user={user} />
+            )}
+          </Tab.Screen>
         {isLoggedIn ? (
           <Tab.Screen
             name="UserInfo"
